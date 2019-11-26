@@ -1,0 +1,30 @@
+body {
+	font-family: sans-serif;
+	background-color: black;
+	color: #0f0;
+}
+
+h1 {
+	font-family: monospace;
+	text-align: center;
+}
+
+a {
+	color: #0f0;
+	font-weight: bold;
+}
+
+a:hover {
+	color: #fff;
+}
+
+body > div {
+	border: 3px solid #0f0;
+	margin-bottom: 20px;
+	padding: 25px;
+}
+
+em {
+	font-weight: bold;
+	color: #fff;
+}
