@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Retrieve Grade</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <fieldset>
+            <legend>Retrieve your grade</legend>
+            <form action="http://mumstudents.org/params.php" method="POST">
+                <label>Name: <input type="text" name="stu_name" /></label>
+                <label>Student ID: <input type="text" name="stu_id" /></label>
+                <label>Assigment: 
+                    <select name="stu_assigment">
+                        <option value="">---</option>
+                        <option value="hw1">Homework 1</option>
+                        <option value="hw2">Homework 2</option>
+                        <option value="hw3">Homework 3</option>
+                    </select>
+                </label>
+                <div>Entry: 
+                    <label>
+                        <input type="radio" name="stu_entry" value="feb" />
+                        February
+                    </label>
+                    <label>
+                        <input type="radio" name="stu_entry" value="may" />
+                        May
+                    </label>
+                    <label>
+                        <input type="radio" name="stu_entry" value="aug" />
+                        August
+                    </label>
+                    <label>
+                        <input type="radio" name="stu_entry" value="nov" />
+                        November
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="areULying" />
+                        Are you sure you aren't a lying liar and is only going to see your own grades?
+                    </label>
+                </div>
+                <input type="submit" value="Get Grade!" />
+            </form>
+        </fieldset>
+    </body>
+</html>
