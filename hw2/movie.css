@@ -86,10 +86,11 @@ div.commentColumn img {
 p.commenter {
     margin-bottom: 20pt;
     overflow: hidden;
+    font-style: italic;
 }
 
 p.commenter > .name {
-    font-style: italic;
+    font-style: normal;
 }
 
 div#leftSection {
