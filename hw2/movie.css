@@ -75,6 +75,7 @@ div.commentColumn p.comment {
     padding: 8px;
     font-size: 8pt;
     font-weight: bold;
+    overflow: hidden;
 }
 
 div.commentColumn img {
