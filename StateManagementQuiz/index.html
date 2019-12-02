@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+    <head>
+        <title>State Management Quiz</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <h1>State Management Quiz</h1>
+        <ol>
+            <li>Can post requests be bookmarked? What are the problems?
+                <blockquote>
+                    <p>No. Normally you bookmark the URL of a request on your browser. And Post requests require attributes on the request body, whose can't be saved just by copying the URL of the request.</p>
+                </blockquote>
+            </li>
+            <li>What is the purpose of request dispatching?
+                <blockquote>
+                    When you want to forward the request with the request and response object to another internal servlet without requiring the client doing an extra round trip.
+                </blockquote>
+            </li>
+            <li>
+                What is the difference between redirect and request dispatch?
+                <blockquote>
+                    Redirect sends a HTTP Header to the response object to tell the user to access any resource (including resources from other servers). That changes the actual URL of the Request and requires an additional round trip. This doesn't happen in a request dispatch which just forward the request and response objects to another internal servlet, without changing the request URL.
+                </blockquote>
+            </li>
+            <li>
+                What is an attribute ?
+                <blockquote>
+                    An attribute is an way to forward data between servlets. It only persists on the request it was set.
+                </blockquote>
+            </li>
+            <li>
+                What is the difference between attributes and parameters?
+                <blockquote>
+                    <p>Attributes are data which are forwarded between servlets (server-side).</p>
+                    <p>Parameters are data which are transferred between client and server, most of the time via Forms (using GET or POST methods)</p>
+                </blockquote>
+            </li>
+            <li>
+                What are dangers of using attributes?
+                <blockquote>
+                    It can be dangerous to use application attributes because it is global and is seen by all the request and servlets of the application. They are also not thread safe (except request attributes).
+                </blockquote>
+            </li>
+            <li>
+                What does it mean to say that http is stateless? Give an example of a stateful protocol.
+                <blockquote>
+                    <p>HTTP is stateless because after responding to a request, it doesn't keep track of that request or who sent it.</p>
+                    <p>A TCP protocol is stateful because both ends of the connection maintain information about the session during its life, something HTTP doesn't do.</p>
+                </blockquote>
+            </li>
+            <li>
+                Give 5 different methods for maintaining state information (count each attribute scope as one method).
+                <blockquote>
+                    <ul>
+                        <li>request scope</li>
+                        <li>session scope</li>
+                        <li>application scope</li>
+                        <li>cookies</li>
+                        <li>hidden forms</li>
+                    </ul>
+                </blockquote>
+            </li>
+            <li>
+                How long does a session last?
+                <blockquote>
+                    By default they last 30 minutes. You can change it in the web.xml file or using setMaxInactiveInterval method of the session.
+                </blockquote>
+            </li>
+            <li>
+                What is a cookie, and how long does a cookie last?
+                <blockquote>
+                    <p>Cookies are a small piece of data that servers can use to identify their users. It starts when the server sends the Set-Cookie HTTP header to the client. This tells the client to store this cookie data and send back this same data every time the client requests a resources from this same server until its timeout.</p>
+                    <p>Cookies can last until the browser is closed if its max age was set to 0 (temporary cookie), or can last the time specified by the setMaxAge method other than 0 (permanent cookie).</p>
+                </blockquote>
+            </li>
+            <li>
+                What is the purpose of URL rewriting?
+                <blockquote>
+                    You can use URL rewriting to make more user friendly URLs for your application. This can hide/obfuscate some elements from your application (ex: parameter names) and improve your rank on some search engines.
+                </blockquote>
+            </li>
+            <li>
+                Why does the request attribute report ‘null’ for the maintaining state demo?
+                <blockquote>
+                    It is because the attribute was lost when you click the button to send the form. It was only set when you loaded the Servlet as the GET method, which doesn't happens when you send the form (you are using POST method instead).
+                </blockquote>
+            </li>
+        </ol>
+    </body>
+</html>
