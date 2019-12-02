@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Servlet Intro Quiz</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <h1>Introduction to Servlet Quiz</h1>
+        <ol>
+            <li>What is the difference between a web server and a web container?
+                <blockquote>
+                    <p>Web servers are required when you have to serve static content as html files, images, pdf files.</p>
+                    <p>When you want to serve dynamic content using Java, you have to use a web container which is responsible to handle all the requests that require a servlet to run. Web containers are responsible to create HttpRequestObjects and HttpResponseObjects, find which servlet should handle the request and forward the request to that servlet.</p>
+                </blockquote>
+            </li>
+            <li>What is a servlet?
+                <blockquote>
+                    A servlet is a java object that handles the request forwarded by a Web Container and executes code related to it. It is the server-side software that handles the request, execute some code and return a response to the end user.
+                </blockquote>
+            </li>
+            <li>How do web servers and web containers interact with servlets?
+                <blockquote>
+                    <p>Web servers just handle static data requested by the user.</p>
+                    <p>When the user accesses some resource that should be handled by a Java Servlet application, the web container kicks in and handles the request.</p>
+                    <p>Then it search for the responsible servlet (via web.xml) of that request and if it isn't instantiated, it will create the servlet object and call its init method.</p>
+                    <p>After that it will call the service method of that servlet with the HttpRequestObject and HttpResponseObject of the request.</p>
+                    <p>The rest is handled by the servlet, returned to the web container via response object and then returned to the end user via web server.</p>
+                </blockquote>
+            </li>
+            <li>Who creates request objects?
+                <blockquote>
+                    The webcontainer creates the request objects on each request and forwards them to the responsible servlets. They are only created if the request is for a servlet and not a static content.
+                </blockquote>
+            </li>
+            <li>What are the states in the servlet lifecycle?
+                <blockquote>
+                    There are 5 states in the servlet lifecycle:
+                    <ul>
+                        <li>Load servlet class
+                            <blockquote>This is done by the servlet container to load the servlet class. It is done only once if it wasn't load beforehand.</blockquote>
+                        </li>
+                        <li>instantiation
+                            <blockquote>This is the first time the servlet is instantiated, they are instantiated just once at the first request to the servlet. If the servlet has already been instantiated, it is not called again.</blockquote>
+                        </li>
+                        <li>init
+                            <blockquote>This method is called just after the instantiation, therefore called once. This is where you can initialize resources that required it, for example: Database connections, file streams, and so on.</blockquote>
+                        </li>
+                        <li>service
+                            <blockquote>This method is called on each request. But before calling it, the web container creates a thread just for the request. That is why you should be careful on doing things which aren't thread-safe here.</blockquote>
+                        </li>
+                        <li>destroy
+                            <blockquote>This method is normally called when the servlet container is being shutdown (once). This is where you should free any resource that your servlet allocated.</blockquote>
+                        </li>
+                    </ul>
+                </blockquote>
+            </li>
+            <li>Who calls init and when? 
+                <blockquote>
+                    <p>The servlet container calls init. It is called when the servlet responsible for the request isn't loaded on memory. It happens only once in the lifetime of the servlet.</p>
+                </blockquote>
+            </li>
+            <li>Which of init, service, and doGet should you override?
+                <blockquote>
+                    You can override all of them if needed.
+                    <ul>
+                        <li>init - Override this if you want to initialize some resources before handling requests to the user.</li>
+                        <li>service - Override this if you want to take control of all types of requests in your servlet, regardless of the method type (GET, POST, PUT, DELETE, HEAD, etc).</li>
+                        <li>doGet - Override this if you want to handle only GET requests on your servlet.</li>
+                    </ul>
+                </blockquote>
+            </li>
+            <li>In what sense are servlets multi-threaded?
+                <blockquote>
+                    Because each request to a loaded servlet has it own thread and a call to its service method.
+                </blockquote>
+            </li>
+            <li>What are the implications of this for servlet instance variables?
+                <blockquote>
+                    The implication of this type of multithreading is that all instance variables are shared between all requests, and if you need to change or read those variables, make sure you handle in a thread-safe way.
+                </blockquote>
+            </li>
+        </ol>
+    </body>
+</html>
