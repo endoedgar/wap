@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+    <head>
+        <title>JSP Intro Quiz</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <h1>JSP Introduction Quiz</h1>
+        <ol>
+            <li>What is the main purpose of Java Server Pages?
+                <blockquote>
+                    Servlets puts HTML inside Java code. JSP on the other hand flips this and put Java Code inside HTML, so your code can be a lot easier to handle in a web page context.
+                </blockquote>
+            </li>
+            <li>
+                How are JSP pages related to servlets?
+                <blockquote>
+                    JSP pages converted to servlets on the Translation Phase. So each time a JSP page is requested by the user, the web container is going to check if the page was converted to servlet. If it was converted, it is just going to run it. It it wasn't, convert it first and then run the converted servlet.
+                </blockquote>
+            </li>
+            <li>How are JSP pages related to HTML?
+                <blockquote>
+                    JSP are like HTML pages but they can have special tags to include Java code (example: <% %> tags).
+                </blockquote>
+            </li>
+            <li>Give an example of a JSP scriptlet and show how it will look in the JSP servlet .
+                <blockquote>
+                    <div>
+                        <code>
+                            <% out.print("Example"); %>
+                        </code>
+                    </div>
+                    The above code is going to output <q>Example</q>.
+                </blockquote>
+            </li>
+            <li>Give an example of a JSP declaration and show how it will look in the JSP servlet.
+                <blockquote>
+                    <div>
+                        <code>
+                            <%! int i = 0; %>
+                        </code>
+                    </div>
+                    The above code is going to initialize a servlet instance variable called i and assign 1 to it. This is going to be run only once!
+                </blockquote>
+            </li>
+            <li>Give an example of a JSP comment and show how it will look in the JSP servlet.
+                <blockquote>
+                    <div>
+                        <code>
+                            <%-- Some comment %>
+                        </code>
+                    </div>
+                    The above code is a JSP comment. It is not shown to the user like html comments.
+                </blockquote>
+            </li>
+            <li>Give an example of a JSP expression and show how it will look in the JSP servlet.
+                <blockquote>
+                    <div>
+                        <code>
+                            <%= "Example" %>
+                        </code>
+                    </div>
+                    The above code is a JSP expression. The diference between this and a servlet is that JSP expressions output the result to the user, where JSP scriptlets don't (but you can still do it using out.print).
+                </blockquote>
+            </li>
+            <li>Give an example of a JSP directive and show how it will look in the JSP servlet.
+                <blockquote>
+                    <div>
+                        <code>
+                            <%! import file="header.html" %>
+                        </code>
+                    </div>
+                    The above code is a JSP directive. It is of type import, so it is going to import the file header.html and output it.
+                </blockquote>
+            </li>
+            <li>Explain how an EL expression is evaluated.
+                <blockquote>
+                    <p>EL expressions are evaluated in an specific order.</p>
+                    <p>Take the following expression as an example:</p>
+                    <p><code>${ object.param }</code></p>
+
+                    <p>The object in the above code is actually an attribute, and the web container is going to search the attribute in the following scopes in order:</p>
+                    <ul>
+                        <li>page</li>
+                        <li>request</li>
+                        <li>session</li>
+                        <li>application</li>
+                    </ul>
+                </blockquote>
+            </li>
+            <li>Explain how servlet attributes are involved in EL expressions.
+                <blockquote>
+                    Servlet attributes are where the EL expressions are going to search for data. You have to use attributes to output variable data on EL expressions.
+                </blockquote>
+            </li>
+            <li>Explain how servlets and JSPs use request dispatch to interact. 
+                <blockquote>
+                    Request dispatch are used to forward requests between servlets and JSP pages. If you want to send data to a JSP or Servlet page, you can use setAttribute on your request and that attribute is going to be forwarded to the other servlet.
+                </blockquote>
+            </li>
+        </ol>
+    </body>
+</html>
