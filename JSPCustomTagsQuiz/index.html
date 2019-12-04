@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+    <head>
+        <title>JSP Custom Tags Quiz</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <h1>JSP Custom Tags Quiz</h1>
+        <ol>
+            <li>Rewrite the JSP page in the first demo (forEach) to use scripting instead of the JSTL forEach.
+                <blockquote>
+                    <p>Without scripting (before):</p>
+                    <div>
+                        <code>
+                            <pre>
+    &lt;c:forEach var=&quot;student&quot; items=&quot;${students}&quot;&gt;
+        &lt;tr&gt;
+            &lt;td&gt;${student.name}&lt;/td&gt; 
+            &lt;td&gt;${student.age}&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/c:forEach&gt;
+                            </pre>
+                        </code>
+                    </div>
+
+                    <p>With scripting (after):</p>
+                    <p>First you have to import the Student class putting this on top of the page:</p>
+                    <div>
+                        <code>
+                            <pre>
+    &lt;%@page import=&quot;net.endoedgar.Student&quot;%&gt;
+                            </pre>
+                        </code>
+                    </div>
+                    <p>Then replace the above code with the following:</p>
+                    <div>
+                            <code>
+                                <pre>
+    &lt;%
+        Student[] students = (Student[])pageContext.findAttribute(&quot;students&quot;);
+        for(Student student : students) { 
+    %&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;%=student.getName()%&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;%=student.getAge()%&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;%
+        }
+    %&gt;
+                                </pre>
+                            </code>
+                        </div>
+                </blockquote>
+            </li>
+            <li>How do custom tags relate to JSTL?
+                <blockquote>
+                    JSTL (Java Standard Tag Library) are actually custom tags which became part of the JSP language.
+                </blockquote>
+            </li>
+            <li>What is the role of the URI in the TLD and the taglib directive?
+                <blockquote>
+                    What you put in the URI of the TLD (Tag Library Descriptor) is what you should put in the uri of the taglib directive if you want to include custom tags from that TLD! It is basically a way to identify the TLD.
+                </blockquote>
+            </li>
+            <li>What is a tag handler class?
+                <blockquote>
+                    The tag handler class is where you put the behavior of a tag specified in the TLD. It has to override the method doTag of a parent class, in the lab example the SimpleTagSupport class, and on that method you have to write the HTML output to the JspWriter (getJspContext().getOut()).
+                </blockquote>
+            </li>
+            <li>What is the role of attribute setters in a tag handler class?
+                <blockquote>
+                    The attribute setters allows the container to get the parameters specified on the JSP which is using the tag and put them on those specified properties. You have to let the container know which parameters are accepted on the TLD before creating the setters for them on the class.
+                </blockquote>
+            </li>
+            <li>What is the role of the doTag() method in a tag handler class?
+                <blockquote>
+                    The role of doTag() method is to allow you to change the output of the custom tag using the JSPWriter. You can use your object attributes and show it in any way you need using HTML on the output.
+                </blockquote>
+            </li>
+            <li>What does the operation getJspContext().getOut().write(“Hi Bob”) do when called in a doTag() method?
+                <blockquote>
+                    This operation writes Hi Bob everytime the specified tag is written on a page.
+                </blockquote>
+            </li>
+            <li>What does the operation getJspBody().invoke(null) do when called in a doTag() method?
+                <blockquote>
+                    If you change the tag's body-content on the tld file to scriptless instead of empty, this allows your custom tag to have something between it. With it you can use getJspBody().invoke(null) to output what is between the tag beginning and ending to the user directly.
+                </blockquote>
+            </li>
+        </ol>
+    </body>
+</html>
