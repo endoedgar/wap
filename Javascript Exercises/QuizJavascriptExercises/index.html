@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <title>Javascript Exercises</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+</head>
+<body>
+    <h1>Javascript Exercises</h1>
+    <ol>
+        <li>
+            What is the difference between the following 2 statements?
+            <div>
+                <pre><code>setTimeout(booyah, 2000);
+setTimeout(booyah(), 2000);</code></pre>
+                <blockquote>
+                    The first one is passing booyah as a parameter to the setTimeout function. The second one is actually calling a function called booyah and whatever it returns is going to be passed as a parameter to the setTimeout function.
+                </blockquote>
+            </div>
+        </li>
+        <li>
+            What do the following 2 alerts display (answer without running the code)?
+            <div>
+                <pre><code>var myfunc = function(a, x) {
+    return a * x;
+};
+var x = myfunc(2, 3);
+var y = myfunc;
+alert(x);
+alert(y(2,3));</code></pre>
+                <blockquote>
+                    The first alert shows the return value of x which is myfunc(2,3) and that is 6. The second alert shows the return value of the y function which is a variable function reference to myFunc, returning actually myFunc(2,3) which is 6.
+                </blockquote>
+            </div>
+        </li>
+        <li>
+            Write functions booyah1 and booyah2 so that in both cases below, an alert box comes up after 2 seconds that says “BOOYAH!”
+            <pre><code>setTimeout(booyah1, 2000);
+setTimeout(booyah2(), 2000);</code></pre>
+            <blockquote>
+                <code>
+                    <pre>function booyah1() { alert('BOOYAH'); }
+function booyah2() { return booyah1; }</pre>
+                </code>
+            </blockquote>
+        </li>
+        <li>
+            What is "Unobtrusive Javascript"? What is the practical application of Unobtrusive Javascript (and the reasons for using it)?
+            <blockquote>
+                <p>Unobtrusive Javascript is HTML with minimal Javascript inside.</p>
+                <p>The practical application of it is a way to separate HTML from Logic using some DOM attachment event functions.</p>
+                <p>One of the reasons for doing it is that you can keep HTML clean without Javascript mixed with it, effectively separating the website into three categories:</p>
+                <ol>
+                    <li>content -> html</li>
+                    <li>presentation -> css</li>
+                    <li>behavior -> javascript</li>
+                </ol>
+            </blockquote>   
+        </li>
+    </ol>    
+</body>
+</html>
