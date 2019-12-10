@@ -1,6 +1,6 @@
-CUSTOM = "[     ]\n" + 
+CUSTOM = "[    ]\n" + 
     "=====\n" + 
-    "[#     ]\n" + 
+    "[#    ]\n" + 
     "=====\n" + 
     "[##   ]\n" + 
     "=====\n" + 
@@ -9,3 +9,5 @@ CUSTOM = "[     ]\n" +
     "[#### ]\n" + 
     "=====\n" + 
     "[#####]\n";
+
+ANIMATIONS["Custom"] = ANIMATIONS["custom"] = ANIMATIONS["CUSTOM"] = CUSTOM; 
