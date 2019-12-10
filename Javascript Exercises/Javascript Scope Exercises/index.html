@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Javascript Scope Exercises</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <h1>Javascript Scope Exercises</h1>
+    <ol>
+        <li>
+            Determine what this Javascript code will print out (without running it):
+<code><pre>x = 1;
+var a = 5;
+var b = 10;
+var c = function(a, b, c) {
+    var x = 10;
+    document.write(x);
+    document.write(a);
+    var f = function(a, b, c) {
+        b = a;
+        document.write(b);
+        b = c;
+        var x = 5;
+    }
+    f(a,b,c);
+    document.write(b);
+}
+c(8,9,10);
+document.write(b);
+document.write(x);
+}</pre></code>
+<blockquote>
+    10 8 8 9 10 1
+</blockquote>
+        </li>
+        <li>What is the difference between a method and function?
+            <blockquote>
+                A method is a function called inside an object. A function doesn't require an object.
+            </blockquote>
+        </li>
+        <li>What does 'this' refer to when used in a Java method?
+            <blockquote>
+                this in Java refers to the object which that method belongs to.
+            </blockquote>
+        </li>
+        <li>
+            What does 'this' refer to when used in a JavaScript method?
+            <blockquote>
+                this in Javascript also refers to the object which that method belongs to. If there is no object, it refers to the window object.
+            </blockquote>
+        </li>
+        <li>What does 'this' refer to when used in a JavaScript constructor function?
+            <blockquote>
+                this refers to the newly created object in the constructor function.
+            </blockquote>
+        </li>
+        <li>Assume object x is the prototype for object y in Javascript. Object x has a method f( ) containing keyword 'this'. When f is called by x.f( ), what does 'this' refer to?
+            <blockquote><p>when f is called by x.f, this refers to the x object.</p>
+                <p>when f is called by y.f, this refers to the y object.</p>
+            </blockquote>
+        </li>
+        <li>What is a free variable in JavaScript?
+            <blockquote>A free variable is a variable that is referred to by a function that is not one of its parameters or local variables.</blockquote>
+        </li>
+        <li>Create an object that has properties with name = "fred" and major="music" and a property that is a function that takes 2 numbers and returns the smallest of the two, or the square of the two if they are equal.
+            <blockquote><code><pre>{
+    name: "fred",
+    major: "music",
+    f: function(a, b) {
+        if(a &lt; b)
+            return a;
+        else if(a==b)
+            return a*b;
+        else
+            return b;
+    }
+}</pre></code></blockquote>
+        </li>
+        <li>Write Javascript code for creating three Employee objects using the "new" keyword and a constructor function. Employee objects have the following fields:  name, salary, position.
+            <blockquote>
+                <code><pre>function Employee(name, salary, position) {
+    this.name = name;
+    this.salary = salary;
+    this.position = position;
+}
+
+let e1 = new Employee("John", 5000, "CEO");
+let e2 = new Employee("Robert", 4000, "CFO");
+let e3 = new Employee("Anna", 4000, "CTO");</pre></code>
+            </blockquote>
+        </li>
+        <li>Write a Javascript function that takes any number of input arguments and returns the product of the arguments.
+            <blockquote><code><pre>function f() {
+    let prod = 1;
+    for(let i = 0; i &lt; arguments.length; ++i) {
+        prod *= arguments[i];
+    }
+    return prod;
+}</pre></code>
+            </blockquote>
+        </li>
+        <li>Write an arrow function that returns the maximum of its three input arguments.
+            <blockquote>
+                <code><pre>let f = (a, b, c) =&gt; Math.max(a,b,c)</pre></code>
+            </blockquote>
+        </li>
+    </ol>
+</body>
+</html>
