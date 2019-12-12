@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery Quiz I</title>
+    <style>
+        code {
+            display: block;
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery Quiz I</h1>
+    <ol>
+        <li>In jQuery terminology, what is the difference between the <q>jQuery function</q> and the <q>jQuery object</q>?
+            <blockquote>
+                The jQuery function (jQuery() or $()) allows you to run jQuery methods on a specified jQuery object, CSS Selector or HTML code. The jQuery Object can be a collection of DOM objects which you can use with the jQuery function to run some jQuery methods.
+            </blockquote>
+        </li>
+        <li>
+            <p>Write jQuery code to find all h1 elements that are children of a div element and make their background color red.</p>
+            <p>Sample HTML:</p>
+            <code>&lt;body&gt;
+    &lt;h1&gt;abc&lt;/h1&gt;&lt;br&gt;&lt;div&gt;
+        &lt;h1&gt;div-1&lt;/h1&gt;
+        &lt;h1&gt;div-2&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;h1&gt;xyz&lt;/h1&gt;
+&lt;/body&gt;</code>
+            <blockquote>
+                <code>$(document).ready(function(){
+    $('div h1').css('background-color', 'red');
+});</code>
+            </blockquote>
+        </li>
+        <li>
+            <p>Use a jQuery method to insert the text "YES!" at the end of the &lt;p&gt; element.</p>
+            <code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script&gt;
+
+&lt;!—INSERT YOUR JQUERY CODE HERE  --&gt;
+
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;Is jQuery FUN or what? &lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code>
+
+            <blockquote>
+                <code>$(document).ready(function() {
+    $('p').append('YES!');
+});</code>
+            </blockquote>
+        </li>
+    </ol>
+</body>
+</html>
