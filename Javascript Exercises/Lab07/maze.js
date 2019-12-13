@@ -36,7 +36,7 @@
                 break;
             case GAME_RUNNING:
                 $('.boundary').removeClass('youlose');
-                $('h2').text('');
+                $('h2').text('Click the "S" to begin.');
                 break;
         }
     }
