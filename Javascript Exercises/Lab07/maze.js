@@ -1,3 +1,4 @@
+"use strict";
 (function() {
     const GAME_RUNNING = 0;
     const GAME_WIN = 1;
