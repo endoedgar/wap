@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery Quiz III</title>
+    <style>
+        code {
+            display: block;
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery Quiz III</h1>
+    <ol>
+        <li>Find the text in the first paragraph (stripping out the html), then set the html of the last paragraph to show it is just text (the red bold is gone).
+            <code>&lt;!doctype html>
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;text demo&lt;/title&gt;
+&lt;style&gt;
+p {
+color: blue;
+margin: 8px;
+}
+span {
+color: red;
+}
+&lt;/style&gt;
+&lt;script src="http://code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;&lt;span&gt;Test&lt;/span&gt; Paragraph.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;script&gt;
+
+&lt;!—INSERT YOUR JQUERY CODE HERE  --&gt;
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
+
+        <blockquote>
+            <code>$(document).ready(function() {
+    let text = $('p').eq(0).text();
+    $('p').eq(0).text("");
+    $('p').eq(1).text(text);
+});</code>
+        </blockquote>
+
+        </li>
+        <li>
+            Write jQuery code to create a red background for the level-2 list items.
+
+            <code>&lt;ul class="level-1"&gt;
+    &lt;li class="item-i"&gt;I&lt;/li&gt;
+    &lt;li class="item-ii"&gt;II
+        &lt;ul class="level-2"&gt;
+            &lt;li class="item-a"&gt;A&lt;/li&gt;
+            &lt;li class="item-b"&gt;B
+                &lt;ul class="level-3"&gt;
+                    &lt;li class="item-1"&gt;1&lt;/li&gt;
+                    &lt;li class="item-2"&gt;2&lt;/li&gt;
+                    &lt;li class="item-3"&gt;3&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li class="item-c"&gt;C&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li class="item-iii"&gt;III&lt;/li&gt;
+&lt;/ul&gt;</code>
+
+            <blockquote>
+                <code>$(document).ready(function() {
+    $('.level-2 > li').css('background-color', 'red');
+});</code>
+            </blockquote>
+        </li>
+        <li>
+            Write jQuery code to select the element that comes immediately before item three and change its background color to blue.
+            <code>&lt;ul&gt;
+    &lt;li&gt;list item 1&lt;/li&gt;
+    &lt;li&gt;list item 2&lt;/li&gt;
+    &lt;li class="third-item"&gt;list item 3&lt;/li&gt;
+    &lt;li&gt;list item 4&lt;/li&gt;
+    &lt;li&gt;list item 5&lt;/li&gt;
+&lt;/ul&gt;</code>
+
+            <blockquote>
+                <code>$(document).ready(function() {
+    $('.third-item').prev().css('background-color', 'blue');
+});</code>
+            </blockquote>
+        </li>
+        <li>
+            Let us one additional requirement for the <q>Go Vegetarian</q> button of the Webville Eatery Menu described in Chapter 4 of Head First jQuery: <q>Turkey</q> in the ingredient list of any entree is replaced by <q>Mashed Potatoes</q> in the vegetarian version. You may assume there is a class <q>turkey</q> that identifies these items in the list. Describe the changes to the Javascript (jQuery) code to implement this new requirement.
+            <blockquote>
+                You just have to replace the content of Turkey ingredient to Mashed Potatoes if you want to go Vegetarian.
+                <code>
+                    $('.turkey').replaceWith('Mashed Potatoes');
+                </code>
+                To revert it, just replace .turkey element content to Turkey again.
+            </blockquote>
+        </li>
+        <li>
+            Write Javascript (jQuery) code to change the color of the parent and grandparent list items of the span of text ("some text") in the following to green.
+            <code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script&gt;$(document).ready(function(){
+
+&lt;!—INSERT YOUR JQUERY CODE HERE  --&gt;
+
+});
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class="ancestors"&gt;
+    &lt;div&gt; (great-grandparent)
+        &lt;ul&gt; (grandparent)
+            &lt;li&gt; (direct parent)
+                &lt;span&gt;some text&lt;/span&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code>
+
+            <blockquote>
+                <code>$(document).ready(function(){
+
+    $('span').parent().parent().css('color', 'green');
+                
+});</code>
+            </blockquote>
+        </li>
+    </ol>
+</body>
+</html>
