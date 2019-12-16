@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery Quiz II</title>
+    <style>
+        code {
+            display: block;
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery Quiz II</h1>
+    <ol>
+        <li>Which, if any, of the following 3 code fragments are equivalent? Explain why they are different, if they are. Explain why they can have different parameters and be equivalent, if they are equivalent.
+            <code>//code fragment 1
+$("li").each(function(idx, e) {
+    $(e).css(“color”, “yellow”); });
+
+//code fragment 2
+$("li").each(function() {
+    $(this).css(“color”, “yellow”); });
+
+//code fragment 3
+$("li").each(function(idx) {
+    $(this).css(“color”, “yellow”); });</code>
+            <blockquote>
+                Every single one of them are equivalent because they are changing the color attribute of <q>li</q> elements.
+                On code fragment 1, the e argument is the same as $(this).
+                And on code fragments 1 and 2, they are just changing the number of parameters the anonymous function accepts.    
+            </blockquote>
+        </li>
+        <li>
+            Write a jQuery expression to find all divs on a page that include an unordered list in them, and make their text color be blue.
+            <div>
+                <code>&lt;div&gt;no ul here &lt;/div&gt;
+&lt;div&gt;
+    This does contain a ul.
+    &lt;ul&gt;
+        &lt;li&gt;the first item&lt;/li&gt;
+        &lt;li&gt;the second item&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;script&gt;
+
+&lt;!—INSERT YOUR JQUERY CODE HERE  --&gt;
+
+&lt;/script&gt;
+&lt;/body&gt;</code>
+            <blockquote>
+                <code>$(document).ready(function(){
+    $('div').each(function(i, e) {
+        let uls = e.getElementsByTagName('ul');
+        for(i in uls) {
+            if($.contains(e, uls[i]))
+                $(e).css('color', 'blue');
+        }
+    });
+});</code> or <code>$(document).ready(function(){
+	$('div').has('ul').css('color', 'blue');
+});</code>
+            </blockquote>
+        </li>
+        <li>
+            <p>
+                Write jQuery code to append the following div element (and all of its contents) dynamically to the bodyelement.
+            </p>
+            <p>&lt;div&gt;&lt;h1&gt;JQuery Core&lt;/h1&gt;&lt;div&gt;</p>
+            <p>HTML:</p>
+            <code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;JS Bin&lt;title&gt;
+&lt;head&gt;
+&lt;body&gt;
+
+&lt;body&gt;
+&lt;/html&gt;</code>
+            <blockquote>
+                <code>$(document).ready(function() {
+    $('body').append('&lt;div&gt;&lt;h1&gt;JQuery Core&lt;/h1&gt;&lt;div&gt;');
+});</code>
+            </blockquote>
+        </li>
+    </ol>
+</body>
+</html>
